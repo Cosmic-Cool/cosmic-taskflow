@@ -119,9 +119,11 @@ System 4: Creative Matrix
 ```bash
 mkdir -p build
 cd build
-cmake .. -DCMAKE_CXX_STANDARD=20 -DTF_BUILD_EXAMPLES=ON
+cmake .. -DCMAKE_CXX_STANDARD=17 -DTF_BUILD_EXAMPLES=ON
 make synopsis_systems
 ```
+
+Note: While the example is compatible with C++17, Taskflow also supports C++20 and C++23 for enhanced features.
 
 ### Running the Example
 
@@ -204,6 +206,6 @@ This implementation successfully demonstrates:
 ✓ Sequential execution within cycles for cognitive coherence  
 ✓ Concurrent execution of three polar dimensions  
 ✓ Complete task graph visualization capability  
-✓ Clean, maintainable C++20 code using Taskflow
+✓ Clean, maintainable C++17-compatible code using Taskflow
 
 The implementation provides a foundation for further exploration of cognitive architectures in parallel computing frameworks.

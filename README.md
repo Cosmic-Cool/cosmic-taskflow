@@ -132,7 +132,7 @@ For a more comprehensive example showcasing advanced Taskflow features with enli
 For an advanced cognitive architecture implementation demonstrating the Synopsis Architecture's four-system hierarchy with complex task dependencies and concurrency patterns:
 
 ```bash
-~$ g++ -std=c++20 examples/synopsis_systems.cpp -I. -O2 -pthread -o synopsis_systems
+~$ g++ -std=c++17 examples/synopsis_systems.cpp -I. -O2 -pthread -o synopsis_systems
 ~$ ./synopsis_systems
 # Implements Systems 1-4 with System 4's 12-step sequence in 3 cycles of 4
 # Demonstrates concurrency modeling with 3 particular sets, 4 steps apart

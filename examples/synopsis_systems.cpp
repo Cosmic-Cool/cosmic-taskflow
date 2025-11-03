@@ -4,7 +4,6 @@
 
 #include <taskflow/taskflow.hpp>
 #include <iostream>
-#include <vector>
 #include <chrono>
 #include <thread>
 
@@ -21,7 +20,7 @@ void execute_step(const std::string& system, const std::string& step_name, int s
 // System 1: Universal Wholeness
 // Foundation: Single active universal inside relating to passive universal outside
 // Transcends space and time - foundational unity
-void create_system1(tf::Taskflow& taskflow) {
+tf::Task create_system1(tf::Taskflow& taskflow) {
     std::cout << "\n=== SYSTEM 1: Universal Wholeness ===" << std::endl;
     
     auto system1 = taskflow.emplace([]() {
@@ -31,12 +30,13 @@ void create_system1(tf::Taskflow& taskflow) {
     });
     
     system1.name("System 1: Universal Wholeness");
+    return system1;
 }
 
 // System 2: Universal and Particular Centers
 // Foundation: Universal Center 1 in relation to manifold Particular Centers 2
 // Orientations: Objective and Subjective processing modes
-void create_system2(tf::Taskflow& taskflow) {
+tf::Task create_system2(tf::Taskflow& taskflow) {
     std::cout << "\n=== SYSTEM 2: Universal and Particular Centers ===" << std::endl;
     
     auto universal_center = taskflow.emplace([]() {
@@ -62,13 +62,23 @@ void create_system2(tf::Taskflow& taskflow) {
     // Establish fundamental relativity principle
     universal_center.precede(particular_centers);
     particular_centers.precede(objective_mode, subjective_mode);
+    
+    // Return a task that joins both processing modes
+    auto system2_complete = taskflow.emplace([]() {
+        // System 2 completion marker
+    });
+    system2_complete.name("S2: Complete");
+    objective_mode.precede(system2_complete);
+    subjective_mode.precede(system2_complete);
+    
+    return system2_complete;
 }
 
 // System 3: Space and Quantum Frames
 // Foundation: Three Centers generating four Terms
 // Components: Photon (C1), Electron (C2), Proton (C3)
 // Role: Primary Activity - physical manifestation through Idea→Routine→Form
-void create_system3(tf::Taskflow& taskflow) {
+tf::Task create_system3(tf::Taskflow& taskflow) {
     std::cout << "\n=== SYSTEM 3: Space and Quantum Frames ===" << std::endl;
     
     // Three Centers
@@ -115,6 +125,8 @@ void create_system3(tf::Taskflow& taskflow) {
     idea.precede(manifestation);
     routine.precede(manifestation);
     form.precede(manifestation);
+    
+    return manifestation;
 }
 
 // System 4: Creative Matrix
@@ -122,7 +134,7 @@ void create_system3(tf::Taskflow& taskflow) {
 // Components: Idea (C1), Knowledge (C2), Routine (C3), Form (C4)
 // 12-Step Processing Pattern: [1, 4, 2, 8, 5, 7, 1, 4, 2, 8, 5, 7]
 // Broken into 3 cycles of 4 steps with concurrency over particular sets
-void create_system4(tf::Taskflow& taskflow) {
+tf::Task create_system4(tf::Taskflow& taskflow) {
     std::cout << "\n=== SYSTEM 4: Creative Matrix ===" << std::endl;
     std::cout << "12-Step Sequence in 3 Cycles of 4 Steps" << std::endl;
     std::cout << "Pattern: [1, 4, 2, 8] [5, 7, 1, 4] [2, 8, 5, 7]" << std::endl;
@@ -282,6 +294,8 @@ void create_system4(tf::Taskflow& taskflow) {
     potential_dim.precede(integration);
     commitment_dim.precede(integration);
     performance_dim.precede(integration);
+    
+    return integration;
 }
 
 int main() {
@@ -293,11 +307,20 @@ int main() {
     tf::Executor executor;
     tf::Taskflow synopsis_flow("Synopsis Architecture Systems");
     
-    // Create all four systems
-    create_system1(synopsis_flow);
-    create_system2(synopsis_flow);
-    create_system3(synopsis_flow);
-    create_system4(synopsis_flow);
+    // Create all four systems with hierarchical dependencies
+    // Each system builds upon and depends on the completion of the previous system
+    tf::Task system1 = create_system1(synopsis_flow);
+    tf::Task system2 = create_system2(synopsis_flow);
+    tf::Task system3 = create_system3(synopsis_flow);
+    tf::Task system4 = create_system4(synopsis_flow);
+    
+    // Establish hierarchical dependencies between systems
+    // System 2 depends on System 1 (particular centers emerge from universal wholeness)
+    // System 3 depends on System 2 (quantum frames emerge from universal/particular duality)
+    // System 4 depends on System 3 (creative matrix emerges from physical manifestation)
+    system1.precede(system2);
+    system2.precede(system3);
+    system3.precede(system4);
     
     std::cout << "\n" << std::string(60, '-') << std::endl;
     std::cout << "Executing Synopsis Architecture..." << std::endl;

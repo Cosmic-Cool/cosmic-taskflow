@@ -1,6 +1,7 @@
 list(APPEND TF_EXAMPLES
   simple
   cosmos_example
+  synopsis_systems
   attach_data
   async
   async_module

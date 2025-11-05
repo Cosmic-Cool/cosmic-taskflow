@@ -7,6 +7,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <cstdlib>
 
 // Compute A000081 (unlabeled rooted trees) using Pólya's functional equation
 // R(x) = x * exp(sum_{k>=1} R(x^k)/k) = x * prod_{m>=1} (1-x^m)^{-r_m}

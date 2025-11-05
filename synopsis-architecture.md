@@ -152,6 +152,62 @@ The implementation includes comprehensive tests that validate:
 - HyperGraphQL integration functionality
 - Real AI inference capability (when model available)
 
+## OEIS A000081: Unlabeled Rooted Trees
+
+The System's structural dynamics can be represented through unlabeled rooted tree structures, following OEIS sequence A000081. Each system level corresponds to trees with increasing node counts, where the tree structures encode the hierarchical relationships between Centers.
+
+### Tree Structure Notation
+
+Trees are represented using nested parentheses notation, where:
+- `()` represents a single edge from root to leaf
+- Concatenation represents siblings: `()()` means two branches
+- Nesting represents depth: `(())` means a branch with a sub-branch
+
+### System-Level Tree Sequences
+
+Each system level `sN` contains trees with N+1 nodes, following the count from OEIS A000081:
+
+**s1**: {2} = { [ () ] };
+
+Single tree with 2 nodes - one root, one child. Encoding: 2
+
+**s2**: {4,3} = { [ ()() ], [ (()) ] };
+
+Two distinct tree structures with 3 nodes:
+- `()()`: Root with two children - Encoding: 4
+- `(())`: Root with one child that has one child - Encoding: 3
+
+**s3**: {8,6,7,5} = { [ ()()() ], [ (())() ], [ (()()) ], [ ((())) ] };
+
+Four distinct tree structures with 4 nodes:
+- `()()()`: Root with three children - Encoding: 8
+- `(())()`: Root with two children, one having a sub-branch - Encoding: 6
+- `(()())`: Root with one child having two children - Encoding: 7
+- `((()))`: Linear chain of depth 3 - Encoding: 5
+
+**s4**: {16,12,9,14,10,19,13,17,11} = { [ ()()()() ], [ (())()() ], [ (())(()) ], [ (()())() ], [ ((()))() ], [ (()()()) ], [ ((())()) ], [ ((()())) ], [ (((()))) ] };
+
+Nine distinct tree structures with 5 nodes:
+- `()()()()`: Root with four children - Encoding: 16
+- `(())()()`: Root with three children, one branched - Encoding: 12
+- `(())(())`: Root with two children, both branched - Encoding: 9
+- `(()())()`: Root with two children, one doubly-branched - Encoding: 14
+- `((()))()`: Root with two children, one in chain of 3 - Encoding: 10
+- `(()()())`: Root with one child having three children - Encoding: 19
+- `((())())`: Root with one child, having branched child - Encoding: 13
+- `((()()))`: Root with child having child with two children - Encoding: 17
+- `(((())))`: Linear chain of depth 4 - Encoding: 11
+
+### Relationship to System Hierarchy
+
+The tree encodings reflect the structural possibilities at each System level:
+- System 1: Universal wholeness (1 relationship)
+- System 2: Universal and Particular (2 relationships/Terms)
+- System 3: Three Centers (4 relationships/Terms)
+- System 4: Four Centers (9 relationships/Terms)
+
+The parentheses notation maps to the active interfaces and hierarchical efflux/reflux patterns between Centers, with the numeric encodings representing the relative complexity or "weight" of each structural configuration.
+
 ## Future Extensions
 
 The Synopsis architecture provides a foundation for:

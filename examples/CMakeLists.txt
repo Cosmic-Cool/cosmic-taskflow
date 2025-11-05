@@ -2,6 +2,7 @@ list(APPEND TF_EXAMPLES
   simple
   cosmos_example
   synopsis_systems
+  tree_sequences
   attach_data
   async
   async_module

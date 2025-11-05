@@ -165,7 +165,7 @@ Trees are represented using nested parentheses notation, where:
 
 ### System-Level Tree Sequences
 
-Each system level `sN` contains trees with N+1 nodes, following the count from OEIS A000081:
+Each system level `sN` contains trees with N+1 nodes (i.e., s1 has 2 nodes, s2 has 3 nodes, etc.), following the count from OEIS A000081:
 
 **s1**: {2} = { [ () ] };
 
@@ -200,11 +200,11 @@ Nine distinct tree structures with 5 nodes:
 
 ### Relationship to System Hierarchy
 
-The tree encodings reflect the structural possibilities at each System level:
-- System 1: Universal wholeness (1 relationship)
-- System 2: Universal and Particular (2 relationships/Terms)
-- System 3: Three Centers (4 relationships/Terms)
-- System 4: Four Centers (9 relationships/Terms)
+The tree encodings reflect the structural possibilities at each System level. The number of distinct tree structures follows the OEIS A000081 sequence and corresponds to the number of Terms (relationships) in each System:
+- System 1: Universal wholeness (1 tree structure, 1 relationship)
+- System 2: Universal and Particular (2 tree structures, 2 relationships/Terms)
+- System 3: Three Centers (4 tree structures, 4 relationships/Terms)
+- System 4: Four Centers (9 tree structures, 9 relationships/Terms)
 
 The parentheses notation maps to the active interfaces and hierarchical efflux/reflux patterns between Centers, with the numeric encodings representing the relative complexity or "weight" of each structural configuration.
 

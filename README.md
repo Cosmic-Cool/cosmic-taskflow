@@ -138,7 +138,16 @@ For an advanced cognitive architecture implementation demonstrating the Synopsis
 # Demonstrates concurrency modeling with 3 particular sets, 4 steps apart
 ```
 
-See [docs/synopsis-systems-implementation.md](docs/synopsis-systems-implementation.md) for detailed documentation of the Synopsis Architecture implementation.
+For a mathematical example demonstrating combinatorial sequence generation using the dissymmetry theorem:
+
+```bash
+~$ g++ -std=c++17 examples/tree_sequences.cpp -I. -O2 -pthread -o tree_sequences
+~$ ./tree_sequences
+# Computes OEIS sequences A000081 (rooted trees) and A000055 (unrooted trees)
+# Demonstrates parallel task dependencies and mathematical algorithm implementation
+```
+
+See [docs/synopsis-systems-implementation.md](docs/synopsis-systems-implementation.md) for detailed documentation of the Synopsis Architecture implementation, and [docs/tree-sequences.md](docs/tree-sequences.md) for the mathematical theory behind tree enumeration.
 
 # Visualize Your First Taskflow Program
 
